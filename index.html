@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sabrina ♡</title>
+<style>
+:root{
+  --pink:#f7a8c4; --rose:#e879a5; --soft:#fff5f8; --deep:#6f2948;
+  --white:#fff; --shadow:0 18px 50px rgba(111,41,72,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:Georgia,"Times New Roman",serif; color:var(--deep);
+  background:linear-gradient(135deg,#fff 0%,#fff5f8 55%,#fde7f0 100%);
+  overflow-x:hidden;
+}
+button{font:inherit}
+.screen{
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding:32px 18px; position:relative;
+}
+.hero{text-align:center; overflow:hidden}
+.hero h1{font-size:clamp(3rem,10vw,7rem); margin:0; letter-spacing:-.04em}
+.hero .sub{font-size:clamp(1rem,3vw,1.4rem); margin:18px auto 30px; max-width:600px; line-height:1.7}
+.heart{font-size:2rem; animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.btn{
+  border:0; cursor:pointer; color:white; background:var(--rose); padding:14px 25px;
+  border-radius:999px; box-shadow:0 10px 25px rgba(232,121,165,.3);
+  transition:.25s transform,.25s box-shadow;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(232,121,165,.38)}
+.petal{position:absolute;color:#f3a5c0;opacity:.35;animation:float 8s linear infinite}
+@keyframes float{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+
+.section{max-width:1050px;margin:auto;padding:80px 18px}
+.section h2{text-align:center;font-size:clamp(2rem,6vw,3.6rem);margin:0 0 12px}
+.lead{text-align:center;line-height:1.8;max-width:700px;margin:0 auto 45px;font-size:1.08rem}
+.memories{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+.memory{
+  min-height:230px;border:0;border-radius:24px;background:white;box-shadow:var(--shadow);
+  cursor:pointer;position:relative;overflow:hidden;padding:0;transition:.3s transform;
+}
+.memory:hover{transform:translateY(-7px) rotate(-1deg)}
+.memory img{width:100%;height:170px;object-fit:cover;display:block}
+.memory .caption{padding:13px;font-weight:bold}
+.memory .num{position:absolute;top:10px;left:10px;background:#ffffffd9;border-radius:999px;padding:5px 9px}
+
+.letters{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.envelope{
+  background:linear-gradient(145deg,#fff,#fff0f5);border:1px solid #f5c5d7;
+  border-radius:24px;padding:30px 20px;text-align:center;cursor:pointer;
+  box-shadow:var(--shadow);transition:.25s;
+}
+.envelope:hover{transform:translateY(-5px)}
+.envelope .icon{font-size:3rem;margin-bottom:10px}
+
+.final{
+  background:radial-gradient(circle at center,#fff 0%,#ffe8f1 100%);
+  text-align:center;flex-direction:column;
+}
+.final-card{max-width:780px;background:#ffffffd9;border:1px solid #f4c2d5;border-radius:30px;padding:38px 25px;box-shadow:var(--shadow)}
+.final-card p{font-size:clamp(1.05rem,2.5vw,1.3rem);line-height:2}
+.signature{font-size:1.8rem;font-weight:bold;margin-top:25px}
+.small{font-size:.9rem;opacity:.75}
+
+.modal{
+ display:none;position:fixed;inset:0;background:rgba(49,20,33,.72);z-index:20;
+ align-items:center;justify-content:center;padding:20px;
+}
+.modal.show{display:flex}
+.modal-box{max-width:850px;width:100%;max-height:90vh;overflow:auto;background:white;border-radius:28px;padding:25px;position:relative}
+.close{position:absolute;right:15px;top:12px;border:0;background:#ffe4ee;color:var(--deep);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.2rem}
+.modal img{width:100%;max-height:65vh;object-fit:contain;border-radius:18px;background:#fff5f8}
+.modal h3{font-size:1.8rem;margin-bottom:10px}
+.modal p{line-height:1.8;font-size:1.08rem;white-space:pre-line}
+
+footer{text-align:center;padding:30px;color:#9b5874}
+@media(max-width:600px){.memories{grid-template-columns:repeat(2,1fr)}.memory{min-height:190px}.memory img{height:130px}.section{padding:65px 14px}}
+</style>
+</head>
+<body>
+
+<section class="screen hero" id="home">
+  <span class="petal" style="left:8%;animation-delay:0s">♡</span>
+  <span class="petal" style="left:25%;animation-delay:3s">♡</span>
+  <span class="petal" style="left:72%;animation-delay:1s">♡</span>
+  <span class="petal" style="left:90%;animation-delay:5s">♡</span>
+  <div>
+    <div class="heart">♡</div>
+    <p>18 September • our little forever</p>
+    <h1>Nur Adlina Sabrina…</h1>
+    <p class="sub">I made a little something for you. ♡</p>
+    <p style="font-size:.98rem;opacity:.8;margin:-8px auto 24px">Put your headphones on, Sayang 🎧</p>
+    <button class="btn" onclick="startOurStory()">Start our story ♡</button>
+    <div style="height:12px"></div>
+    <button class="btn" onclick="toggleMusic()" id="musicButton">♫ Play our song</button>
+    <audio id="music" src="music.mp3" loop preload="auto"></audio>
+  </div>
+</section>
+
+<section class="section" id="memories">
+  <h2>Our little memories</h2>
+  <p class="lead">Click each picture. Some memories are photographs. Some are just the things Bubu keeps replaying in his head.</p>
+  <div class="memories">
+    <button class="memory" onclick="openPhoto(1)"><span class="num">01</span><img src="photos/photo1.jpg" alt="Memory 1"><div class="caption">A moment I keep ♡</div></button>
+    <button class="memory" onclick="openPhoto(2)"><span class="num">02</span><img src="photos/photo2.jpg" alt="Memory 2"><div class="caption">You looked so pretty</div></button>
+    <button class="memory" onclick="openPhoto(3)"><span class="num">03</span><img src="photos/photo3.jpg" alt="Memory 3"><div class="caption">One for the heart</div></button>
+    <button class="memory" onclick="openPhoto(4)"><span class="num">04</span><img src="photos/photo4.jpg" alt="Memory 4"><div class="caption">Us, always</div></button>
+    <button class="memory" onclick="openPhoto(5)"><span class="num">05</span><img src="photos/photo5.jpg" alt="Memory 5"><div class="caption">My favourite view</div></button>
+    <button class="memory" onclick="openPhoto(6)"><span class="num">06</span><img src="photos/photo6.jpg" alt="Memory 6"><div class="caption">Another little story</div></button>
+    <button class="memory" onclick="openPhoto(7)"><span class="num">07</span><img src="photos/photo7.jpg" alt="Memory 7"><div class="caption">I remember this</div></button>
+    <button class="memory" onclick="openPhoto(8)"><span class="num">08</span><img src="photos/photo8.jpg" alt="Memory 8"><div class="caption">You + me ♡</div></button>
+    <button class="memory" onclick="openPhoto(9)"><span class="num">09</span><img src="photos/photo9.jpg" alt="Memory 9"><div class="caption">A tiny forever</div></button>
+    <button class="memory" onclick="openPhoto(10)"><span class="num">10</span><img src="photos/photo10.jpg" alt="Memory 10"><div class="caption">The one I save</div></button>
+  </div>
+</section>
+
+<section class="section" id="letters">
+  <h2>Letters for Riri 💌</h2>
+  <p class="lead">Some things are easier to say when they're hidden inside an envelope.</p>
+  <div class="letters">
+    <div class="envelope" onclick="openLetter(1)"><div class="icon">💌</div><b>Open when you miss me</b><p>For the days when the distance feels a little too loud.</p></div>
+    <div class="envelope" onclick="openLetter(2)"><div class="icon">🌷</div><b>What I see in you</b><p>A few things your Bubu notices.</p></div>
+    <div class="envelope" onclick="openLetter(3)"><div class="icon">🌙</div><b>For our future</b><p>A little promise from me to you.</p></div>
+    <div class="envelope" onclick="openLetter(4)"><div class="icon">❤️</div><b>One last thing...</b><p>Save this one for the end.</p></div>
+  </div>
+</section>
+
+<section class="screen final" id="final">
+  <div class="final-card">
+    <div class="heart">♡</div>
+    <h2>My dearest Sabrina</h2>
+    <p>
+      Thank you so much for this past year, sayang.
+
+      You know, if you could see my thoughts, you'd see endless stories of us — imaginary ones and real ones.
+
+      U ingat tak kat Kg Wai kan? There were beautiful sceneries that you saw, but at that time, I only saw you — the most beautiful scenery God created.
+
+      It's all you, you, you, you and you.
+
+      Everything I do is for you, and no matter what — even if I got schizophrenia, amnesia, heck, even if I die — I'll still wake up and say your name first.
+    </p>
+    <div class="signature">My dearest Sabrina, I love you. ♡</div>
+    <p class="small">Happy anniversary, Sayang. — Bubu</p>
+  </div>
+</section>
+
+<footer>Made with love by Bubu, for Riri ♡</footer>
+
+<div class="modal" id="modal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+function startOurStory() {
+  const music = document.getElementById("music");
+  music.play().catch(()=>{});
+  document.getElementById("musicButton").textContent = "♫ Pause our song";
+  document.getElementById("memories").scrollIntoView({behavior:"smooth"});
+}
+function toggleMusic() {
+  const music = document.getElementById("music");
+  const button = document.getElementById("musicButton");
+  if (music.paused) {
+    music.play();
+    button.textContent = "♫ Pause our song";
+  } else {
+    music.pause();
+    button.textContent = "♫ Play our song";
+  }
+}
+const photoNotes = {
+  1:["A moment I keep ♡","Put your own little story about this photo here."],
+  2:["You looked so pretty","There are some pictures where I look at you and forget what I was about to say."],
+  3:["One for the heart","Distance can't take this memory away from me."],
+  4:["Us, always","No matter how far, you're still my favourite person to come home to."],
+  5:["My favourite view","And somehow, my favourite view is always you."],
+  6:["Another little story","One day we'll have so many memories that we won't know where to start."],
+  7:["I remember this","I remember the little details. Especially you."],
+  8:["You + me ♡","My favourite combination."],
+  9:["A tiny forever","A little picture of a life I hope we keep building."],
+  10:["The one I save","If I could keep one feeling forever, it'd be this one."]
+};
+
+const letters = {
+  1:["Open when you miss me",`Sayang,
+
+If you're reading this because you miss me, come here for a second.
+
+Imagine Bubu sitting beside you, annoying you a little, holding your hand, and telling you that we're going to be okay.
+
+I miss you too. More than I know how to explain.
+
+Until I can be beside you again, keep a little piece of me with you.`],
+  2:["What I see in you",`I see someone who makes ordinary days feel special.
+
+I see the girl I want to tell everything to.
+
+I see my Sayang, my Riri, my Wifey, my favourite person.
+
+And sometimes I still can't believe I get to call you mine.`],
+  3:["For our future",`I don't know exactly what every tomorrow will look like.
+
+But I know who I want in those tomorrows.
+
+I want more silly conversations, more dates, more photographs, more places, more food, more arguments we eventually laugh about, and more quiet moments where I just look at you.
+
+I want a future with you.`],
+  4:["One last thing...",`You are loved.
+
+Not just today. Not just because it's our anniversary.
+
+You are loved on the boring days, the difficult days, the days when you're tired, the days when you don't feel pretty, and every ordinary day in between.
+
+By your Bubu.
+
+Always.`]
+};
+
+function openPhoto(n){
+  const [title,text]=photoNotes[n];
+  document.getElementById("modalContent").innerHTML =
+    `<img src="photos/photo${n}.jpg" alt="${title}">
+     <h3>${title}</h3><p>${text}</p>`;
+  document.getElementById("modal").classList.add("show");
+}
+function openLetter(n){
+  const [title,text]=letters[n];
+  document.getElementById("modalContent").innerHTML =
+    `<h3>💌 ${title}</h3><p>${text}</p>`;
+  document.getElementById("modal").classList.add("show");
+}
+function closeModal(e){
+  if(!e || e.target.id==="modal") document.getElementById("modal").classList.remove("show");
+}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+</script>
+</body>
+</html>
